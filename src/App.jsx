@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import BreweryInfo from './Components/BreweryInfo'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import Layout from '/routes/Layout'
+import BreweryMap from './Components/BreweryMap'
+
 
 function App() {
   const API_KEY = import.meta.env.VITE_APP_API_KEY
   const [searchInput, setSearchInput] = useState("")
   const [filteredData, setFilteredData] = useState([])
+  const [breweries, setBreweries] = useState([])
 
-  const [breweries, setBreweries] = useState(null)
-
-    useEffect(() => {
-        const fetchAllBreweries = async () => {
-            const response = await fetch(
-              "https://api.openbrewerydb.org/v1/breweries"
-            )
-            const json = await response.json()
-            setBreweries(json)
-          }
-          fetchAllBreweries().catch(console.error)
-    }, [])
+  useEffect(() => {
+    const fetchAllBreweries = async () => {
+        const response = await fetch(
+          "https://api.openbrewerydb.org/v1/breweries"
+        );
+        const breweries = await response.json();
+        setBreweries(breweries);
+    };
+    fetchAllBreweries().catch(console.error);
+}, []);
 
 
   const searchItems = searchValue => {
@@ -50,7 +53,7 @@ function App() {
           />
         </div>
 
-        <br></br>
+        <BreweryMap />
 
         <table>
           <thead>

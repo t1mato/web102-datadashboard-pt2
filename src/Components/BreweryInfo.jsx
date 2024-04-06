@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const BreweryInfo = ({ id, name, city, state, type }) => {
     
@@ -22,7 +23,14 @@ const BreweryInfo = ({ id, name, city, state, type }) => {
             { label ? (
                 <>
                     <tr key={id}>
-                        <td>{name}</td>
+                        <td>
+                            <Link
+                                style={{ color: "#cbaa75", textAlign: "left" }}
+                                to={`/BreweryDetail/${id}`}
+                            >
+                            {name}
+                            </Link>
+                        </td>
                         <td>{city}</td>
                         <td>{state}</td>
                         <td>{type}</td>

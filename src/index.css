@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #cbaa75;
   background-color: #242424;
 
   font-synthesis: none;
@@ -30,12 +30,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #805e24;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #cbaa75;
 }
 button:focus,
 button:focus-visible {
@@ -60,7 +60,7 @@ table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 td, th {
@@ -71,10 +71,15 @@ td, th {
 th {
     padding-top: 14px;
     padding-bottom: 14px;
-    background-color: brown;
+    background-color: #966919;
     color: white;
 }
 
 .header {
   text-align: center;
+  margin: 50px;
+}
+
+.leaflet-container {
+  height: 100vh;
 }
